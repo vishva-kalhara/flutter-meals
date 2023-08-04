@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:meals/models/meal.dart';
-import 'package:meals/data/meal_data.dart';
-import 'package:transparent_image/transparent_image.dart';
+// import 'package:meals/data/meal_data.dart';
+// import 'package:transparent_image/transparent_image.dart';
 
 class SingleMeal extends StatelessWidget {
   const SingleMeal({super.key, required this.currMeal});
