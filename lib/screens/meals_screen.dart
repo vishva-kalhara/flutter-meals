@@ -7,9 +7,9 @@ import 'package:meals/screens/single_meal.dart';
 import 'package:meals/widgets/meals_list_item.dart';
 
 class MealsScreen extends StatelessWidget {
-  const MealsScreen({super.key, required this.meals, required this.title});
+  const MealsScreen({super.key, required this.meals, this.title});
 
-  final String title;
+  final String? title;
   final List<Meal> meals;
 
   void _selectedMeal(BuildContext context, Meal id) {
@@ -38,9 +38,7 @@ class MealsScreen extends StatelessWidget {
       itemBuilder: (ctx, index) => MealsListItem(
         meal: meals[index],
         onTapItem: () {
-          _selectedMeal(
-            context, meals[index]
-          );
+          _selectedMeal(context, meals[index]);
         },
       ),
     );
@@ -68,9 +66,13 @@ class MealsScreen extends StatelessWidget {
       );
     }
 
+    if (title == null) {
+      return content;
+    }
+
     return Scaffold(
         appBar: AppBar(
-          title: Text(title),
+          title: Text(title!),
         ),
         body: content
         // body: ListView.builder(itemBuilder: (ctx, index) => Text(meals[index].title))

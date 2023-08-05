@@ -14,6 +14,7 @@ class SingleMeal extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(currMeal.title),
+        actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.star))],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
