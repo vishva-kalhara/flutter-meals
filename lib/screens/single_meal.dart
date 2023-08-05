@@ -5,16 +5,23 @@ import 'package:meals/models/meal.dart';
 // import 'package:transparent_image/transparent_image.dart';
 
 class SingleMeal extends StatelessWidget {
-  const SingleMeal({super.key, required this.currMeal});
+  const SingleMeal({super.key, required this.currMeal, required this.onToggleFavourite});
 
   final Meal currMeal;
+  final void Function(Meal meal) onToggleFavourite;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(currMeal.title),
-        actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.star))],
+        actions: [
+          IconButton(
+              onPressed: () {
+                onToggleFavourite(currMeal);
+              },
+              icon: const Icon(Icons.star))
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
